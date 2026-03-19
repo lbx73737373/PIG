@@ -1,0 +1,28 @@
+.DS_Store
+.idea/
+__pycache__/
+*.py[cod]
+*.so
+
+# Python environments
+.env
+.venv/
+venv/
+
+# Training artifacts
+outputs/
+logs/
+runs/
+*.log
+
+# Cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Checkpoints and generated files
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz

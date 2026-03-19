@@ -1,0 +1,93 @@
+{
+  "train_datasets": {
+    "name": "msrvtt-9k",
+    "vis_format": "video",
+    "txt": "datasets/msrvtt/annotations/train9k.jsonl",
+    "auxiliary_txt": 0,
+    "num_aux_per_sample": 1,
+    "vis": "datasets/msrvtt/videos/all"
+  },
+  "val_datasets": [
+    {
+      "name": "msrvtt-1ka",
+      "vis_format": "video",
+      "txt": "datasets/msrvtt/annotations/test1ka.jsonl",
+      "auxiliary_txt": 0,
+      "num_aux_per_sample": 30,
+      "vis": "datasets/msrvtt/videos/all"
+    }
+  ],
+  "inference_datasets": [
+    {
+      "name": "msrvtt-1ka",
+      "vis_format": "video",
+      "txt": "datasets/msrvtt/annotations/test1ka.jsonl",
+      "auxiliary_txt": 0,
+      "num_aux_per_sample": 30,
+      "vis": "datasets/msrvtt/videos/all"
+    }
+  ],
+  "train_n_clips": 1,
+  "train_num_frms": 12,
+  "test_n_clips": 1,
+  "test_num_frms": 12,
+  "sample_rate": 0,
+  "sample_jitter": 1,
+  "video_res": [240, 320],
+  "image_res": [224, 224],
+  "input_res": [224, 224],
+  "max_txt_len": 50,
+  "clip_weights": "openai/clip-vit-base-patch32",
+  "clip_config": "openai/clip-vit-base-patch32",
+  "freeze_text_model": 0,
+  "freeze_text_proj": 0,
+  "clip_vision_additional_config": {
+    "type": "ViP",
+    "temporal_size": 12,
+    "if_use_temporal_embed": 1,
+    "logit_scale_init_value": 4.60,
+    "add_cls_num": 3,
+    "keep_frame_cls": 1,
+    "use_different_frame_cls": 0,
+    "wo_global_view_in_frame_attn": 0
+  },
+  "post_training_strategy": "",
+  "freeze_clip_encoder_steps": 0,
+  "freeze_fusioner_steps": 0,
+  "freeze_epochs": 0,
+  "train_batch_size": 32,
+  "test_batch_size": 32,
+  "max_n_example_per_group": 1,
+  "gradient_accumulation_steps": 1,
+  "n_workers": 8,
+  "pin_mem": 1,
+  "fp16": 1,
+  "amp_level": "O2",
+  "seed": 42,
+  "optim": "adamw",
+  "betas": [0.9, 0.98],
+  "learning_rate": 1e-6,
+  "weight_decay": 0.2,
+  "lr_mul": 1,
+  "lr_mul_prefix": [""],
+  "loss_config": {
+    "loss_name": "NCELearnableTempLoss",
+    "fusioner_selected_video_feats_loss": 0,
+    "if_gather": 1
+  },
+  "warmup_ratio": 0.01,
+  "decay": "cosine",
+  "grad_norm": 1.0,
+  "num_train_epochs": 100,
+  "min_valid_steps": 1,
+  "num_valid": 1,
+  "only_valid_steps": 100,
+  "save_steps_ratio": 0.9,
+  "output_dir": "outputs/msrvtt/clip_vip_b32",
+  "if_tb_log": 0,
+  "if_model_saver": 1,
+  "if_log2file": 1,
+  "dummy_data": 0,
+  "fusioner_select_video_tokens_type": "cls+added_cls+frame_cls"
+}
+
