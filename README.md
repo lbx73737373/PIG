@@ -7,7 +7,8 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/2509.04773">Paper</a> |
-  <a href="https://arxiv.org/pdf/2509.04773">PDF</a>
+  <a href="https://arxiv.org/pdf/2509.04773">PDF</a> |
+  <a href="https://lbx73737373.github.io/PIG-ProjectPage/">Project Page</a>
 </p>
 
 This repository releases the official training code for the PIG method on MSRVTT retrieval.
